@@ -1,5 +1,5 @@
 function cuentaNueva() {
-    let nombre, apellido, numTel, email, contraseña;
+    let nombre, apellido, numTel, email, contraseña, contraseña2;
 
     // consulta si se quiere crear una nueva cuenta 
     let respuesta = prompt("Quieres realizar una nueva Cuenta? (si/no)");
