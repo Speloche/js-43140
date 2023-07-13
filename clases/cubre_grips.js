@@ -11,7 +11,7 @@ class Grips {
 
     descrip_grips(){
 
-        return (this.marca + this.modelo + "u$d "+ this.precio);
+        return (" - " + this.marca + " " + this.modelo + " " + "u$d "+ this.precio);
     }
 
 

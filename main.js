@@ -71,7 +71,7 @@ function cuentaNueva() {
                     switch (response) {
 
                         case "1":
-                            listado_raquetas();
+                            comprar_raqueta();
                             break;
                         case "2":
                             listado_pelotas();
@@ -141,32 +141,76 @@ function solicitarDatos(mensaje) {
 
 }
 
-function listado_raquetas (){
+function comprar_raqueta() {
+
+    listado_raquetas();
+
+    let codigo_raqueta = prompt("Ingrese el Codigo de la Raqueta que quiera comprar");
+
+    if (codigo_raqueta) {
+
+        let raqueta_ok = stock_raquetas.find((e) => e.codigo == codigo_raqueta)
+
+        if (raqueta_ok) {
+
+            let respuesta = confirm("La Raqueta eliga es :" + raqueta_ok.info_raqueta() + " ?");
+            if (respuesta) {
+
+                alert ("Gracias por su compra. "+ "\n"+ "Si el metodo de pago es transferencia,realizarla a numero de cuenta 32454 , banco Itau."+ "\n" + "Si el pago es en efectivo, puede realizarlo en cualquier Abitab o Red pagos del pais, con Nombre y Cedula")
+
+        
+            }
+
+
+
+        }
+
+
+    }
+}
+
+
+
+
+
+
+
+function listado_raquetas() {
 
     let mensaje = "Las raquetas Disponibles son: ";
 
     stock_raquetas.forEach((raqueta) => {
         mensaje += "\n " + raqueta.descrip_raqueta();
-        
+
     })
 
-    alert (mensaje);
+    alert(mensaje);
 }
 
 
-function listado_pelotas (){
+function listado_pelotas() {
 
     let mensaje = "Las Pelotas Disponibles son: ";
 
     stock_pelotas.forEach((pelota) => {
         mensaje += "\n " + pelota.descrip_pelotas();
-        
+
     })
 
-    alert (mensaje);
+    alert(mensaje);
 }
 
+function listado_grips() {
 
+    let mensaje = "Los Grips Disponibles son: ";
+
+    stock_grips.forEach((grip) => {
+        mensaje += "\n " + grip.descrip_grips();
+
+    })
+
+    alert(mensaje);
+}
 
 
 
