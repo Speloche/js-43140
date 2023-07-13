@@ -52,8 +52,54 @@ function cuentaNueva() {
             if (contraseña === contraseña2) {
 
                 // se muestra un mensaje de creacion de cuenta 
-                document.write("Se creo Correctamente su Cuenta." + "<br>" + "Sus datos de ingreso son:" + "<br>" + "Usuario: " + email + "<br>" + "Contraseña: " + contraseña);
+                alert("Se creo Correctamente su Cuenta." + "\n" + "Sus datos de ingreso son:" + "\n" + "Usuario: " + email + "\n" + "Contraseña: " + contraseña);
+
+                alert("Bienevenid@s a la tienda de Tenis para Todos");
+
+                let store = true;
+                while (store) {
+
+                    let mensaje = " Como lo podemos ayudar? : ";
+                    mensaje += "\n1) Comprar Raquetas ";
+                    mensaje += "\n2) Comprar Pelotas ";
+                    mensaje += "\n3) Comprar Over Grips ";
+                    mensaje += "\n4) Tienes codigo de Descuento? ";
+                    mensaje += "\n5) Salir ";
+
+                    let response = prompt(mensaje);
+
+                    switch (response) {
+
+                        case "1":
+                            listado_raquetas();
+                            break;
+                        case "2":
+                            listado_pelotas();
+                            break;
+                        case "3":
+                            listado_grips();
+                            break;
+                        case "4":
+                            aplicar_descuento();
+                            break;
+                        case "5":
+                            alert("Gracias por visitar nuestra Tienda ");
+                            store = false;
+                            break;
+                        case null:
+                            alert("Gracias por visitar nuestra Tienda ");
+                            store = false;
+                            break;
+                        default:
+                            alert("La opcion ingresada no es valida");
+
+
+                    }
+                }
+
                 break;
+
+
 
             } else {
                 alert("Las Contraseñas no coinciden ,vuelva a intentarlo");
@@ -95,6 +141,30 @@ function solicitarDatos(mensaje) {
 
 }
 
+function listado_raquetas (){
+
+    let mensaje = "Las raquetas Disponibles son: ";
+
+    stock_raquetas.forEach((raqueta) => {
+        mensaje += "\n " + raqueta.descrip_raqueta();
+        
+    })
+
+    alert (mensaje);
+}
+
+
+function listado_pelotas (){
+
+    let mensaje = "Las Pelotas Disponibles son: ";
+
+    stock_pelotas.forEach((pelota) => {
+        mensaje += "\n " + pelota.descrip_pelotas();
+        
+    })
+
+    alert (mensaje);
+}
 
 
 
