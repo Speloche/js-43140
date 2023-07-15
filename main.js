@@ -123,7 +123,7 @@ switch (respuesta.toLowerCase()) {
 
 
 
-
+// Funcion que solicita los datos al usuario
 function solicitarDatos(mensaje) {
 
     let nombre = prompt(mensaje);
