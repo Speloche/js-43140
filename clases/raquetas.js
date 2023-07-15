@@ -3,8 +3,9 @@
 
 class Raquetas {
 
-    constructor(codigo,marca, modelo, peso, precio) {
+    constructor(articulo,codigo,marca, modelo, peso, precio) {
         
+        this.articulo = articulo
         this.codigo = codigo;
         this.marca = marca;
         this.modelo = modelo;
@@ -21,10 +22,11 @@ class Raquetas {
 
 info_raqueta(){
 
-    return (" - " + this.marca + "  " + this.modelo + " - " + this.peso + " - " + "u$d "+ this.precio);
+    return (this.articulo + " " + this.marca + "  " + this.modelo + " - " + this.peso + " - " + "u$d "+ this.precio);
 }
 
 precio_raqueta(){
     return(this.precio);
 }
+
 }

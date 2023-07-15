@@ -2,8 +2,9 @@
 
 class Grips {
 
-    constructor(codi,marca, modelo, precio) {
+    constructor(articulo,codi,marca, modelo, precio) {
         
+        this.articulo = articulo
         this.codi = codi;
         this.marca = marca;
         this.modelo = modelo;
@@ -17,7 +18,7 @@ class Grips {
 
     info_grips(){
 
-        return (" - " + this.marca + "  " + this.modelo + " - " + "u$d "+ this.precio);
+        return (this.articulo + " " + this.marca + "  " + this.modelo + " - " + "u$d "+ this.precio);
     }
 
     precio_grips(){
