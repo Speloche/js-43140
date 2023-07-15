@@ -1,6 +1,7 @@
 let total_compra = "";
+let precio_total = 0;
 
-function cuentaNueva() {
+
     let nombre, apellido, numTel, email, contraseña, contraseña2;
 
     // consulta si se quiere crear una nueva cuenta 
@@ -56,6 +57,7 @@ function cuentaNueva() {
                 // se muestra un mensaje de creacion de cuenta 
                 alert("Se creo Correctamente su Cuenta." + "\n" + "Sus datos de ingreso son:" + "\n" + "\n" + "Usuario: " + email + "\n" + "Contraseña: " + contraseña);
 
+                // Se ingresa a la Tienda
                 alert("Bienevenid@s a la tienda de Tenis para Todos");
 
                 let store = true;
@@ -79,11 +81,11 @@ function cuentaNueva() {
                             comprar_pelota();
                             break;
                         case "3":
-                            listado_grips();
+                            comprar_grips();
                             break;
                         case "4":
                             pagar();
-                            store= false;
+                            store = false;
                             break;
                         case "5":
                             alert("Gracias por visitar nuestra Tienda ");
@@ -118,11 +120,8 @@ function cuentaNueva() {
             alert("Caracter invalido, no se puede crear la cuenta, intente nuevamente.");
             break;
     }
-}
 
 
-// Se llama para reiniciar la funcion nuevamente 
-cuentaNueva();
 
 
 function solicitarDatos(mensaje) {
@@ -143,6 +142,7 @@ function solicitarDatos(mensaje) {
 
 }
 
+//funcion para elegir que raqueta comprar
 function comprar_raqueta() {
 
     listado_raquetas();
@@ -151,42 +151,77 @@ function comprar_raqueta() {
 
     if (codigo_raqueta) {
 
-        let raqueta_ok = stock_raquetas.find((e) => e.codigo == codigo_raqueta)
+        let raqueta_ok = stock_raquetas.find((r) => r.codigo == codigo_raqueta)
 
         if (raqueta_ok) {
 
             let respuesta = confirm("La Raqueta elegida es :" + "\n" + raqueta_ok.info_raqueta() + " ?");
 
             total_compra += raqueta_ok.info_raqueta() + "\n";
+            precio_total += raqueta_ok.precio_raqueta();
 
             if (respuesta) {
 
                 alert("Su articulo fue agregado correctamente al Carrito de compra")
 
-            
             }
 
-
-
-        }
-
+        }else alert("El codigo que ingreso no es correcto")
 
     }
 }
 
-function pagar(){
 
-    let pagar = confirm ("Los articulos seleccionados son: " + "\n" + total_compra + "\n" + "\n" + "Quieres confirmar la compra y pagar?");
+function comprar_pelota(){
 
-    if (pagar){
+    listado_pelotas()
 
-        document.write("Su numero de Recibo es : " + Math.random()*100000000000000000 + "<br>" + "<br>" + "Metodos de Pago: " + "<br>" + "<br>" + "- Transferencia bancaria: Cuenta 23452 Banco Itau" + "<br>"+"<br>" + "- Si el pago es en efectivo, puede realizarlo en cualquier Abitab o Redpagos del pais con su Numero de Recibo" + "<br>" + "<br>" + "Gracias por comprar en Tenis para Todos!");
+    let codigo_pelota = prompt("Ingrese el Codigo de las pelotas que quiera comprar");
+
+    if (codigo_pelota) {
+
+        let pelota_ok = stock_pelotas.find((p) => p.cod == codigo_pelota)
+
+        if (pelota_ok) {
+
+            let resp = confirm("Las Pelotas elegida son :" + "\n" + pelota_ok.info_pelota() + " ?");
+
+            total_compra += pelota_ok.info_pelota() + "\n";
+            precio_total += pelota_ok.precio_pelota();
+
+
+            if (resp) {
+
+                alert("Su articulo fue agregado correctamente al Carrito de compra")
+
+            }
+
+        }else alert("El codigo que ingreso no es correcto")
 
     }
-    
 }
 
 
+
+
+
+
+// funcion Pagar , confirma todo lo que se eligio y muestra metodos de pago.
+
+function pagar() {
+
+    let pagar = confirm("Los articulos seleccionados son: " + "\n" + total_compra + "\n" + "\n" + "Quieres confirmar la compra y pagar?");
+
+    if (pagar) {
+
+        document.write("Su numero de Recibo es : " + Math.random() * 100000000000000000 + "<br>" + "<br>" + "El total de la Compra es : " + "u$d "+ precio_total + "<br>" + "<br>" + "Metodos de Pago: " + "<br>" + "<br>" + "- Transferencia bancaria: Cuenta 23452 Banco Itau" + "<br>" + "<br>" + "- Efectivo: puede realizarlo en cualquier Abitab o Redpagos del pais con su Numero de Recibo." + "<br>" + "<br>" + "Gracias por comprar en Tenis para Todos!");
+
+    }else alert("Gracias por visitar nuestra Tienda ");
+
+}
+
+
+// funciones de listado de productos
 function listado_raquetas() {
 
     let mensaje = "Las raquetas Disponibles son: ";

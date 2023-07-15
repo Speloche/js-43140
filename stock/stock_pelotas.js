@@ -1,15 +1,15 @@
 
 //Pelotas Babolat
 
-let pelota_babol1 = new Pelotas("Babolat", "Team all Court", 14);
-let pelota_babol2 = new Pelotas("Babolat", "Gold all Court", 11);
-let pelota_babol3 = new Pelotas("Babolat", "Gold Championship", 10);
+let pelota_babol1 = new Pelotas(7,"Babolat", "Team all Court", 14);
+let pelota_babol2 = new Pelotas(8,"Babolat", "Gold all Court", 11);
+let pelota_babol3 = new Pelotas(9,"Babolat", "Gold Championship", 10);
 
 //Pelotas Wilson
 
-let pelota_wilson1 = new Pelotas("Wilson", "Roland Garros", 13);
-let pelota_wilson2 = new Pelotas("Wilson", "Regular Duty", 11);
-let pelota_wilson3 = new Pelotas("Wilson", "Tour Clay", 15);
+let pelota_wilson1 = new Pelotas(10,"Wilson", "Roland Garros", 13);
+let pelota_wilson2 = new Pelotas(11,"Wilson", "Regular Duty", 11);
+let pelota_wilson3 = new Pelotas(12,"Wilson", "Tour Clay", 15);
 
 
 let stock_pelotas = new Array();

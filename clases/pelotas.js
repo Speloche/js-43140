@@ -2,8 +2,9 @@
 
 class Pelotas {
 
-    constructor(marca, modelo, precio) {
-
+    constructor(cod,marca, modelo, precio) {
+        
+        this.cod = cod;
         this.marca = marca;
         this.modelo = modelo;
         this.precio = precio;
@@ -11,9 +12,16 @@ class Pelotas {
 
     descrip_pelotas(){
 
-        return (" - " + this.marca + " " + this.modelo + "  " +  "u$d "+ this.precio);
+        return ("Codigo " + this.cod + " - " + this.marca + " " + this.modelo + "  " +  "u$d "+ this.precio);
     }
 
+    info_pelota(){
 
+        return (" - " + this.marca + "  " + this.modelo + " - " + "u$d "+ this.precio);
+    }
+
+    precio_pelota(){
+        return(this.precio)
+    }
 
 }

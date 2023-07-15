@@ -24,4 +24,7 @@ info_raqueta(){
     return (" - " + this.marca + "  " + this.modelo + " - " + this.peso + " - " + "u$d "+ this.precio);
 }
 
+precio_raqueta(){
+    return(this.precio);
+}
 }
