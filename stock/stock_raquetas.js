@@ -8,8 +8,8 @@ let babolat3 = new Raquetas(3, "Babolat", "Pure Strike", "315 grs.", 340);
 //RAquetas Wilson
 
 let wilson1 = new Raquetas(4, "Wilson", "Blade", "310 grs.", 320);
-let wilson2 = new Raquetas(5, "wilson", "Ultra", "305 grs.", 310);
-let wilson3 = new Raquetas(6, "wilson", "Clash", "300 grs.", 300);
+let wilson2 = new Raquetas(5, "Wilson", "Ultra", "305 grs.", 310);
+let wilson3 = new Raquetas(6, "Wilson", "Clash", "300 grs.", 300);
 
 
 let stock_raquetas = new Array();
