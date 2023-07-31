@@ -1,21 +1,190 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tenis para Todos</title>
-    <link rel="stylesheet" href="./style.css">
-</head>
-<body>
-    <div> <H1>Tienda de Tenis para Todos</H1></div>
+    <title>Tienda Tenis para Todos</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
 
-    <script src="./clases/raquetas.js"></script>
-    <script src="./clases/pelotas.js"></script>
-    <script src="./clases/cubre_grips.js"></script>
-    <script src="./stock/stock_raquetas.js"></script>
-    <script src="./stock/stock_pelotas.js"></script>
-    <script src="./stock/stock_grips.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+
+</head>
+
+<body>
+
+    <header class="d-flex align-items-center justify-content-center border-bottom fixed-top">
+
+        <div class="container d-flex align-items-center">
+
+            <div class="logo col-3 d-flex align-items-center justify-content-between m-1">
+                <img src="./assets/img/logo-chico-2.png" alt="" width="" height="70" alt="">
+                <p>Tenis para Todos</p>
+
+            </div>
+
+            <div class="col-6 d-flex align-items-center justify-content-center">
+                <div class="header-buscador-marco">
+                    <input type="text" name="buscar" id="search">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                </div>
+            </div>
+
+            <div class="col-3 d-flex align-items-center justify-content-end">
+
+                <a class="cart position-relative d-inline-flex" aria-label="View your shopping cart"
+                    data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
+
+                    <i class="fa-solid fa-cart-shopping position-relative" id="iconoCarrito">
+                        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger"
+                            id="badgeCarrito">0
+                        </span>
+                    </i>
+                </a>
+
+            </div>
+
+        </div>
+    </header>
+
+    <div class="login-contenedor">
+        <h2>Login</h2>
+        <form id="login-form">
+            <div class="form-grupo">
+                <label for="nombre">Nombre</label>
+                <input type="text" id="nombre" name="nombre" required>
+            </div>
+            <div class="form-grupo">
+                <label for="apellido">Apellido</label>
+                <input type="text" id="apellido" name="apellido" required>
+            </div>
+            <div class="form-grupo">
+                <label for="phone">Numero de Telefono</label>
+                <input type="tel" id="celular" name="celular" required>
+            </div>
+            <div class="form-grupo">
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div class="form-grupo">
+                <label for="password">Contraseña</label>
+                <input type="password" id="password" name="password" required>
+            </div>
+            <div class="form-grupo">
+                <label for="confirm-password">Confirmar Contraseña</label>
+                <input type="password" id="confirm-password" name="confirm-password" required>
+            </div>
+            <button type="submit">Ingresar</button>
+        </form>
+    </div>
+
+    <div class="main">
+
+        <div class="container mt-3 d-flex gap-3">
+
+
+            <div class="col-9">
+
+                
+
+
+
+
+
+                <div id="articulo">
+                </div>
+
+
+            </div>
+
+        </div>
+
+
+        <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
+            <div class="offcanvas-header">
+                <h5 id="offcanvasRightLabel">Tu pedido</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
+                    aria-label="Close"></button>
+            </div>
+            <div class="offcanvas-body">
+
+                <div id="idCarrito">
+
+                    <div class="row">
+
+                        <div class="col"></div>
+                        <div class="col">Nombre</div>
+                        <div class="col">Precio</div>
+                        <div class="col">Cantidad</div>
+                        <div class="col"></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+
+        <footer class="footer">
+            <section class="redes">
+                <a href="https://www.instagram.com/tenis.para.todos/" target="_blank">
+                    <img src="./assets/img/Instagram.png" alt="logo de instagram en Png">
+                    <span> _TenisparaTodos</span>
+                </a>
+                <a href="https://www.facebook.com/tenis.paratodos.7" target="_blank">
+                    <img src="./assets/img/Facebook.png" alt="logo de facebook en Png">
+                    <span> Tenis para Todos</span>
+                </a>
+
+            </section>
+            <section>
+                <div class="location-pin">
+                    <a href="https://goo.gl/maps/BueKH7NSA3V5mxUq9" target="_blank">
+                        <img src="./assets/img/Location.png" alt="pin de locacion">
+                        Gral. Urquiza 2942
+                    </a>
+                    <h3>Montevideo-Uruguay</h3>
+                </div>
+            </section>
+            <section>
+                <div class="tel">
+                    <img src="./assets/img/Ringer-Volume.png" alt="ringer Volume">
+                    Tel: 098 356 456
+                </div>
+            </section>
+            <div class="logo-chico">
+                <img src="./assets/img/logo-chico-2.png" width="138px" alt="logo de tenis para todos">
+            </div>
+        </footer>
+
+    </div>
+
+
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
+        crossorigin="anonymous"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastify-js/1.6.1/toastify.js"
+        integrity="sha512-MnKz2SbnWiXJ/e0lSfSzjaz9JjJXQNb2iykcZkEY2WOzgJIWVqJBFIIPidlCjak0iTH2bt2u1fHQ4pvKvBYy6Q=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/limonte-sweetalert2/11.4.17/sweetalert2.min.js"
+        integrity="sha512-Kyb4n9EVHqUml4QZsvtNk6NDNGO3+Ta1757DSJqpxe7uJlHX1dgpQ6Sk77OGoYA4zl7QXcOK1AlWf8P61lSLfQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <script src="./gestores/gestorArticulos.js"></script>
+    <script src="./gestores/gestorLogin.js"></script>
     <script src="main.js"></script>
 </body>
+
 </html>
