@@ -4,11 +4,17 @@ let articulos = new Array();
 let gestor;
 
 document.addEventListener("DOMContentLoaded", () => {
-    // Chequeo de si el usuario esta logueado,si lo esta se muestra tienda sino el form de nuevo.
+
+    // Chequeo de si el usuario esta logueado,si lo esta ,se muestra tienda ,sino el form de nuevo.
+
     const logueado = estaLogueado();
+
     if (logueado) {
+
         const infoUsuario = getInfoUsuario();
+
         mostrarTienda(infoUsuario);
+        
     } else {
         mostrarForm();
     }
