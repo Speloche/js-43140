@@ -90,13 +90,13 @@ document.addEventListener("DOMContentLoaded", () => {
             const total = carrito.reduce((accumulator, item) => accumulator + item.precio, 0);
 
             // se crea una lista de lo comprado
-            const purchasedItemsList = carrito.map(item => `- ${item.nombre}<br> `).join('\n');
+            let listadoCompras = carrito.map(item => `- ${item.nombre}<br> `).join('\n');
 
 
             Swal.fire({
 
                 title: 'Compra Finalizada',
-                html: `<b>Los Articulos son :</b> <br>  ${purchasedItemsList}<br> <br> Total: $${total} <br> <br> Gracias por tu compra! , dentro de las proximas 24hrs nos contactaremos para coordinar la entrega y el metodo de pago!. `,
+                html: `<b>Los Articulos son :</b> <br>  ${listadoCompras}<br> <br> Total: $${total} <br> <br> Gracias por tu compra! , dentro de las proximas 24hrs nos contactaremos para coordinar la entrega y el metodo de pago!. `,
                 icon: 'success',
                 confirmButtonText: 'OK'
 
