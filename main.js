@@ -1,7 +1,11 @@
-let carrito = [];
 let articulos = new Array();
+let total = 0;
 
 let gestor;
+
+
+const url = './stock.json';
+
 
 document.addEventListener("DOMContentLoaded", () => {
 
@@ -14,10 +18,13 @@ document.addEventListener("DOMContentLoaded", () => {
         const infoUsuario = getInfoUsuario();
 
         mostrarTienda(infoUsuario);
-        
+
     } else {
+
         mostrarForm();
     }
+    actualizarCarritoBadge();
+
 });
 
 document.getElementById("login-form").addEventListener("submit", (e) => {
@@ -50,9 +57,20 @@ document.getElementById("login-form").addEventListener("submit", (e) => {
 });
 
 
+const comprarBoton = document.querySelectorAll(".carr");
+
+comprarBoton.forEach(boton => {
+
+    boton.addEventListener("click", () => {
+
+        const idProducto = parseInt(boton.getAttribute("data-id"));
+
+        agregarAlCarrito(idProducto);
+    });
+
+});
 
 document.querySelector("#search").addEventListener("keyup", () => {
-
 
     let search = document.querySelector("#search").value;
 
@@ -60,39 +78,18 @@ document.querySelector("#search").addEventListener("keyup", () => {
 
         gestor.buscar(search);
 
-
-
     } else {
 
-        gestor.cargarArticulos(articulos)
-
-
+        gestor.cargarArticulos(articulos);
     }
-})
+});
 
+function actualizarCarritoBadge() {
 
+    let carritoBadge = document.getElementById("badgeCarrito");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    if (carritoBadge) {
+        
+        carritoBadge.textContent = carrito.length.toString();
+    }
+}
